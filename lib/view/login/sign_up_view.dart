@@ -1,5 +1,6 @@
 import 'package:asghar_shop/common/constance.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import '../../common_widget/line_text_field.dart';
 import '../../common_widget/rounded_butten.dart';
@@ -113,12 +114,11 @@ class _SingUpViewState extends State<SingUpView> {
                     ),
                     TextInputField(
                       obscureText: false,
-                      controller: txtEmail,
+                      controller: txtUser,
                       placeholder: "نام کاربری خود را وارد کنید",
                       title: "نام کاربری",
                       sizetext: 15,
                       hinttextsize: 13,
-                      keyboardType: TextInputType.emailAddress,
                     ),
                     SizedBox(
                       height: media.height * 0.03,
@@ -143,16 +143,26 @@ class _SingUpViewState extends State<SingUpView> {
                         ),
                       ),
                     ),
-                    Row(
-                      children: [
-                        TextButton(
-                          onPressed: () {},
-                          child: Text("!فراموشی رمز عبور"),
-                        ),
-                      ],
+                    SizedBox(
+                      height: media.height * 0.02,
+                    ),
+                    RichText(
+                      textDirection: TextDirection.rtl,
+                      text: TextSpan(
+                          style: TextStyle(
+                              fontFamily: 'anjoman',
+                              fontSize: 18,
+                              color: AppColor.secondaryText,
+                              fontWeight: FontWeight.w700),
+                          children: const [
+                            TextSpan(
+                              text:
+                                  " قبول میکنید که قوانین اصغر شاپ را می پذیرید میتوانید آن را در این لینک ببینید",
+                            ),
+                          ]),
                     ),
                     SizedBox(
-                      height: media.height * 0.03,
+                      height: media.height * 0.05,
                     ),
                     RoundedButten(
                       title: "ثبت نام",
@@ -168,7 +178,9 @@ class _SingUpViewState extends State<SingUpView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                           child: const Text("ورود کنید"),
                         ),
                         const Text("قبلا ثبت نام کردید؟"),
