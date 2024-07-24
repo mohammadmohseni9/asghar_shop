@@ -2,7 +2,7 @@ import 'package:asghar_shop/common/constance.dart';
 import 'package:flutter/material.dart';
 
 import '../../common_widget/line_text_field.dart';
-import 'location_select.dart';
+import 'locationselect_view.dart';
 
 class VerifactionView extends StatefulWidget {
   const VerifactionView({super.key});
@@ -72,6 +72,7 @@ class _VerifactionViewState extends State<VerifactionView> {
                     height: 25,
                   ),
                   TextInputField(
+                    obscureText: false,
                     controller: txtOTP,
                     placeholder: " - - - - ",
                     title: "کد",

@@ -1,18 +1,18 @@
 import 'package:asghar_shop/common/constance.dart';
-import 'package:asghar_shop/view/login/sign_up_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../common_widget/line_text_field.dart';
 import '../../common_widget/rounded_butten.dart';
 
-class LoginView extends StatefulWidget {
-  LoginView({super.key});
+class SingUpView extends StatefulWidget {
+  SingUpView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<SingUpView> createState() => _SingUpViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _SingUpViewState extends State<SingUpView> {
+  TextEditingController txtUser = TextEditingController();
   TextEditingController txtEmail = TextEditingController();
   TextEditingController txtPassword = TextEditingController();
 
@@ -67,7 +67,7 @@ class _LoginViewState extends State<LoginView> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          "وارد شوید",
+                          "ثبت نام کنید :",
                           textDirection: TextDirection.rtl,
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -85,7 +85,7 @@ class _LoginViewState extends State<LoginView> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          "ایمیل و رمز عبور خود را وارد کنید",
+                          "اطلاعات خود را وارد کنید",
                           textDirection: TextDirection.rtl,
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -104,6 +104,18 @@ class _LoginViewState extends State<LoginView> {
                       controller: txtEmail,
                       placeholder: "ایمیل خود را وارد کنید",
                       title: "ایمیل",
+                      sizetext: 15,
+                      hinttextsize: 13,
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                    SizedBox(
+                      height: media.height * 0.03,
+                    ),
+                    TextInputField(
+                      obscureText: false,
+                      controller: txtEmail,
+                      placeholder: "نام کاربری خود را وارد کنید",
+                      title: "نام کاربری",
                       sizetext: 15,
                       hinttextsize: 13,
                       keyboardType: TextInputType.emailAddress,
@@ -143,7 +155,7 @@ class _LoginViewState extends State<LoginView> {
                       height: media.height * 0.03,
                     ),
                     RoundedButten(
-                      title: "ورود",
+                      title: "ثبت نام",
                       onPressed: () {
                         //   Navigator.push(
                         //       context,
@@ -156,14 +168,10 @@ class _LoginViewState extends State<LoginView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SingUpView()));
-                          },
-                          child: const Text("ساخت حساب کاربری"),
+                          onPressed: () {},
+                          child: const Text("ورود کنید"),
                         ),
+                        const Text("قبلا ثبت نام کردید؟"),
                       ],
                     ),
                   ],
