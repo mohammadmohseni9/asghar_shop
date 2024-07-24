@@ -1,4 +1,5 @@
 import 'package:asghar_shop/common/constance.dart';
+import 'package:asghar_shop/view/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,13 +13,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'سوپری اصغر',
+      debugShowCheckedModeBanner: false,
+      title: 'اصغر شاب',
       theme: ThemeData(
-        fontFamily: "Gilroy",
+        fontFamily: "anjoman",
         colorScheme: ColorScheme.fromSeed(seedColor: AppColor.primary),
         useMaterial3: false,
       ),
-      home: Container(),
+      home: const SplashView  (),
     );
   }
 }
