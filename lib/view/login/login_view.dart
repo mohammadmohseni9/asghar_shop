@@ -1,5 +1,6 @@
 import 'package:asghar_shop/common/constance.dart';
 import 'package:asghar_shop/view/login/sign_up_view.dart';
+import 'package:asghar_shop/view/maintab/main_tabview.dart';
 import 'package:flutter/material.dart';
 
 import '../../common_widget/line_text_field.dart';
@@ -135,7 +136,7 @@ class _LoginViewState extends State<LoginView> {
                       children: [
                         TextButton(
                           onPressed: () {},
-                          child: Text("!فراموشی رمز عبور"),
+                          child: const Text("!فراموشی رمز عبور"),
                         ),
                       ],
                     ),
@@ -145,11 +146,10 @@ class _LoginViewState extends State<LoginView> {
                     RoundedButten(
                       title: "ورود",
                       onPressed: () {
-                        //   Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //           builder: (context) => const SignInView()));
-                        // }),{
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MainTabview()));
                       },
                     ),
                     Row(
