@@ -1,4 +1,5 @@
 import 'package:asghar_shop/common/constance.dart';
+import 'package:asghar_shop/view/explore_category/explore_view.dart';
 import 'package:asghar_shop/view/home/home_view.dart';
 import 'package:flutter/material.dart';
 
@@ -40,7 +41,7 @@ class _MainTabviewState extends State<MainTabview>
           Container(),
           Container(),
           Container(),
-          Container(),
+          const ExploreView(),
           const HomeView(),
         ],
       ),

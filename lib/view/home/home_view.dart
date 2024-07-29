@@ -269,7 +269,7 @@ class _HomeViewState extends State<HomeView> {
                         vertical: 15, horizontal: 20),
                   ),
                   SizedBox(
-                    height: 110,
+                    height: 150,
                     child: ListView.builder(
                         reverse: true,
                         //وقتی که میخواهیم افکت تصویر اسکرول رو حذف کنیم از این ویژگی فیزیک استفاده میکنیم

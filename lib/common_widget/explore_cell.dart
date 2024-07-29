@@ -1,11 +1,11 @@
 import 'package:asghar_shop/common/constance.dart';
 import 'package:flutter/material.dart';
 
-class CategoryCell extends StatelessWidget {
+class ExploreCell extends StatelessWidget {
   final Map pObj;
   final VoidCallback onPressed;
 
-  const CategoryCell({
+  const ExploreCell({
     super.key,
     required this.pObj,
     required this.onPressed,
@@ -13,43 +13,46 @@ class CategoryCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var color = (pObj["color"] as Color? ?? AppColor.primary).withOpacity(0.3);
     return InkWell(
+      borderRadius: BorderRadius.circular(15),
       onTap: onPressed,
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 8),
+        //margin: const EdgeInsets.symmetric(horizontal: 8),
         padding: const EdgeInsets.all(15),
-        width: 250,
         decoration: BoxDecoration(
-          color: (pObj["color"] as Color? ?? AppColor.primary).withOpacity(0.3),
+          color: color.withOpacity(0.25),
+          borderRadius: BorderRadius.circular(15),
           border: Border.all(
+            color: color,
             width: 1,
           ),
-          borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
-                  child: Text(
-                    pObj["name"],
-                    style: TextStyle(
-                        color: AppColor.primaryText,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700),
-                  ),
-                ),
                 Image.asset(
                   pObj["icon"],
-                  width: 70,
-                  height: 70,
+                  width: 130,
+                  height: 90,
                   fit: BoxFit.contain,
                 ),
               ],
             ),
+            const Spacer(),
+            Text(
+              pObj["name"],
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: AppColor.primaryText,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500),
+            ),
+            const Spacer(),
           ],
         ),
       ),
