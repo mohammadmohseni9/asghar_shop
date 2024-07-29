@@ -7,7 +7,7 @@ import '../../common_widget/line_text_field.dart';
 import '../../common_widget/rounded_butten.dart';
 
 class LoginView extends StatefulWidget {
-  LoginView({super.key});
+  const LoginView({super.key});
 
   @override
   State<LoginView> createState() => _LoginViewState();
@@ -160,7 +160,7 @@ class _LoginViewState extends State<LoginView> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SingUpView()));
+                                    builder: (context) => const SingUpView()));
                           },
                           child: const Text("ساخت حساب کاربری"),
                         ),

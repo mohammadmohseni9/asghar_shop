@@ -28,7 +28,7 @@ class DropDown extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        Container(
+        SizedBox(
           //width: double.maxFinite,
           height: 60,
           child: DropdownButtonHideUnderline(

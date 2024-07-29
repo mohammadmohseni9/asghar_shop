@@ -31,6 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
   fl_country_code_picker: ^0.1.9+1
+  persian_number_utility: ^1.1.4
+  flutter_rating_bar:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

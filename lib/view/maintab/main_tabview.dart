@@ -17,7 +17,6 @@ class _MainTabviewState extends State<MainTabview>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     tabController = TabController(length: 5, vsync: this, initialIndex: 4);
     tabController?.addListener(() {
@@ -28,7 +27,6 @@ class _MainTabviewState extends State<MainTabview>
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     tabController?.dispose();
   }
@@ -43,7 +41,7 @@ class _MainTabviewState extends State<MainTabview>
           Container(),
           Container(),
           Container(),
-          HomeView(),
+          const HomeView(),
         ],
       ),
       bottomNavigationBar: Container(
@@ -81,7 +79,7 @@ class _MainTabviewState extends State<MainTabview>
               fontFamily: 'anjoman',
               fontWeight: FontWeight.w700,
             ),
-            labelPadding: EdgeInsets.symmetric(vertical: 10),
+            labelPadding: const EdgeInsets.symmetric(vertical: 10),
             tabs: [
               Tab(
                 text: "پروفایل",

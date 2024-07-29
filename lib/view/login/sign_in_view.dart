@@ -23,7 +23,7 @@ class _SignInViewState extends State<SignInView> {
     );
   }
 
-  FocusNode _focusNode = FocusNode();
+  final FocusNode _focusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {

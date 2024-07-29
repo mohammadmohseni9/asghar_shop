@@ -1,5 +1,8 @@
+import 'package:asghar_shop/common_widget/Product_cell.dart';
+import 'package:asghar_shop/view/product/product_details_view.dart';
 import 'package:flutter/material.dart';
 import '../../common/constance.dart';
+import '../../common_widget/category.dart';
 import '../../common_widget/section_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -12,24 +15,72 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   TextEditingController txtSearch = TextEditingController();
 
-  List exclusiveOffer= [
+  List exclusiveOffer = [
     {
-      "name":"موز تازه",
-      "icon" : "assets/images/banana.png",
-      "qty" : "7",
-      "unit" : "قیمت / کیلو",
-      "price" : "30 هزار تومان"
+      "name": "موز تازه",
+      "icon": "assets/images/banana.png",
+      "qty": "7",
+      "unit": "قیمت هر کیلو",
+      "price": "30 هزار تومان"
     },
     {
-      "name":"سیب تازه ",
-      "icon" : "assets/images/apple.png",
-      "qty" : "1",
-      "unit" : "قیمت / کیلو",
-      "price" : "15 هزار تومان"
+      "name": "سیب تازه ",
+      "icon": "assets/images/apple.png",
+      "qty": "1",
+      "unit": "قیمت هر کیلو",
+      "price": "15 هزار تومان"
     }
   ];
 
+  List lastMobiles = [
+    {
+      "name": "نوکیا ساده",
+      "icon": "assets/images/mobile1.jpg",
+      "qty": "7",
+      "unit": "قیمت هر کیلو",
+      "price": "30 هزار تومان"
+    },
+    {
+      "name": "گوشی شیائمی",
+      "icon": "assets/images/moble2.png",
+      "qty": "1",
+      "unit": "قیمت هر کیلو",
+      "price": "15 هزار تومان"
+    }
+  ];
 
+  List bestSell = [
+    {
+      "name": "لامپ هدلایت",
+      "icon": "assets/images/lamp.jpg",
+      "qty": "7",
+      "unit": "قیمت هر کیلو",
+      "price": "30 هزار تومان"
+    },
+    {
+      "name": "روغن موتور",
+      "icon": "assets/images/rm.jpg",
+      "qty": "1",
+      "unit": "قیمت هر کیلو",
+      "price": "15 هزار تومان"
+    }
+  ];
+  List cargories = [
+    {
+      "name": "لامپ هدلایت",
+      "icon": "assets/images/lamp.jpg",
+      "qty": "7",
+      "unit": "قیمت هر کیلو",
+      "price": "30 هزار تومان"
+    },
+    {
+      "name": "روغن موتور",
+      "icon": "assets/images/rm.jpg",
+      "qty": "1",
+      "unit": "قیمت هر کیلو",
+      "price": "15 هزار تومان"
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +89,7 @@ class _HomeViewState extends State<HomeView> {
         backgroundColor: Colors.white,
         body: SafeArea(
           child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 25),
               child: Column(
@@ -51,7 +103,7 @@ class _HomeViewState extends State<HomeView> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "تهران ، پردیس",
+                        "تهران ، دماوند",
                         textDirection: TextDirection.rtl,
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -108,21 +160,17 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                   SizedBox(
-                    height: media.height * 0.01,
+                    height: media.height * 0.015,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Container(
                       width: double.maxFinite,
-                      height: 115,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(97, 144, 144, 144),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
                       alignment: Alignment.center,
                       child: Image.asset(
-                        "assets/images/banner_top.png",
+                        "assets/images/supermarket.png",
                         fit: BoxFit.cover,
+                        //height: 115,
                       ),
                     ),
                   ),
@@ -134,18 +182,165 @@ class _HomeViewState extends State<HomeView> {
                         vertical: 10, horizontal: 20),
                   ),
                   SizedBox(
-                    height: 250,
+                    height: 230,
                     child: ListView.builder(
-                      itemCount: exclusiveOffer.length,
-                      itemBuilder: (context , index){ 
-                        var pObj = exclusiveOffer[index] as Map? ??{};
-                        return Container();
-                      }),
-                  )
+                        reverse: true,
+                        //وقتی که میخواهیم افکت تصویر اسکرول رو حذف کنیم از این ویژگی فیزیک استفاده میکنیم
+                        physics: const BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        itemCount: exclusiveOffer.length,
+                        itemBuilder: (context, index) {
+                          var pObj = exclusiveOffer[index] as Map? ?? {};
+                          return ProductCell(
+                            onCard: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ProductDetailsView()));
+                            },
+                            pObj: pObj,
+                          );
+                        }),
+                  ),
+                  SectionView(
+                    title: "پر فروش ترین محصولات",
+                    onPressed: () {},
+                    //isShowSeeAllButton: null,
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 20),
+                  ),
+                  SizedBox(
+                    height: 230,
+                    child: ListView.builder(
+                        reverse: true,
+                        //وقتی که میخواهیم افکت تصویر اسکرول رو حذف کنیم از این ویژگی فیزیک استفاده میکنیم
+                        physics: const BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        itemCount: bestSell.length,
+                        itemBuilder: (context, index) {
+                          var pObj = bestSell[index] as Map? ?? {};
+                          return ProductCell(
+                            onCard: () {},
+                            onPressed: () {},
+                            pObj: pObj,
+                          );
+                        }),
+                  ),
+                  SectionView(
+                    title: "اخرین موبایل ها",
+                    onPressed: () {},
+                    //isShowSeeAllButton: null,
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 20),
+                  ),
+                  SizedBox(
+                    height: 230,
+                    child: ListView.builder(
+                        reverse: true,
+                        //وقتی که میخواهیم افکت تصویر اسکرول رو حذف کنیم از این ویژگی فیزیک استفاده میکنیم
+                        physics: const BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        itemCount: lastMobiles.length,
+                        itemBuilder: (context, index) {
+                          var pObj = lastMobiles[index] as Map? ?? {};
+                          return ProductCell(
+                            onCard: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ProductDetailsView()));
+                            },
+                            pObj: pObj,
+                          );
+                        }),
+                  ),
+                  SectionView(
+                    title: "دسته بندی ها",
+                    onPressed: () {},
+                    //isShowSeeAllButton: null,
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 20),
+                  ),
+                  SizedBox(
+                    height: 110,
+                    child: ListView.builder(
+                        reverse: true,
+                        //وقتی که میخواهیم افکت تصویر اسکرول رو حذف کنیم از این ویژگی فیزیک استفاده میکنیم
+                        physics: const BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        itemCount: lastMobiles.length,
+                        itemBuilder: (context, index) {
+                          var pObj = lastMobiles[index] as Map? ?? {};
+                          return CategoryCell(
+                            onPressed: () {},
+                            pObj: pObj,
+                          );
+                        }),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    height: 230,
+                    child: ListView.builder(
+                        reverse: true,
+                        //وقتی که میخواهیم افکت تصویر اسکرول رو حذف کنیم از این ویژگی فیزیک استفاده میکنیم
+                        physics: const BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        itemCount: exclusiveOffer.length,
+                        itemBuilder: (context, index) {
+                          var pObj = exclusiveOffer[index] as Map? ?? {};
+                          return ProductCell(
+                            onCard: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ProductDetailsView()));
+                            },
+                            pObj: pObj,
+                          );
+                        }),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                 ],
               ),
             ),
           ),
         ));
   }
+}
+
+String convertEnglishNumbersToPersian(String input) {
+  Map<String, String> numberMap = {
+    '0': '۰',
+    '1': '۱',
+    '2': '۲',
+    '3': '۳',
+    '4': '۴',
+    '5': '۵',
+    '6': '۶',
+    '7': '۷',
+    '8': '۸',
+    '9': '۹',
+    // ... و بقیه اعداد
+  };
+
+  String output = '';
+  for (int i = 0; i < input.length; i++) {
+    output += numberMap[input[i]] ?? input[i];
+  }
+  return output;
 }

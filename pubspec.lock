@@ -83,6 +83,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_rating_bar:
+    dependency: "direct main"
+    description:
+      name: flutter_rating_bar
+      sha256: d2af03469eac832c591a1eba47c91ecc871fe5708e69967073c043b2d775ed93
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -160,6 +168,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.0"
+  persian_number_utility:
+    dependency: "direct main"
+    description:
+      name: persian_number_utility
+      sha256: d171732c8d6bd1b710de3d4b4f11c8d326e20e9c462968df78c5358dcbc189b4
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.4"
   scrollable_positioned_list:
     dependency: transitive
     description:

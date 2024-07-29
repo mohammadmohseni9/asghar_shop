@@ -119,7 +119,7 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                     title: "ارسال",
                     onPressed: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginView()));
+                          MaterialPageRoute(builder: (context) => const LoginView()));
                     },
                   ),
                 ],

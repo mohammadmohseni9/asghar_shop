@@ -1,12 +1,10 @@
 import 'package:asghar_shop/common/constance.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-
 import '../../common_widget/line_text_field.dart';
 import '../../common_widget/rounded_butten.dart';
 
 class SingUpView extends StatefulWidget {
-  SingUpView({super.key});
+  const SingUpView({super.key});
 
   @override
   State<SingUpView> createState() => _SingUpViewState();

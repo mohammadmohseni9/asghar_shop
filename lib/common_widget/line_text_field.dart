@@ -61,7 +61,7 @@ class TextInputField extends StatelessWidget {
         Container(
           width: double.maxFinite,
           height: 1,
-          color: Color.fromARGB(255, 211, 208, 208),
+          color: const Color.fromARGB(255, 211, 208, 208),
         )
       ],
     );

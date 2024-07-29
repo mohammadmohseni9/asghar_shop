@@ -1,6 +1,7 @@
 import 'package:asghar_shop/common/constance.dart';
-import 'package:asghar_shop/view/splash_view.dart';
 import 'package:flutter/material.dart';
+
+import 'view/maintab/main_tabview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColor.primary),
         useMaterial3: false,
       ),
-      home: const SplashView  (),
+      home: const MainTabview(),
     );
   }
 }
