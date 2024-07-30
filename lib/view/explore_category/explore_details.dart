@@ -1,6 +1,7 @@
 import 'package:asghar_shop/common_widget/product_cell.dart';
 import 'package:flutter/material.dart';
 import '../../common/constance.dart';
+import 'filters_view.dart';
 
 class ExploreDetailsView extends StatefulWidget {
   final Map eObj;
@@ -86,7 +87,12 @@ class _ExploreDetailsViewState extends State<ExploreDetailsView> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const FiltersView(),
+                ),
+              );
             },
             icon: Image.asset(
               "assets/images/filter_ic.png",

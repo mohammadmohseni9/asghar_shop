@@ -17,6 +17,7 @@ class ProductCell extends StatelessWidget {
     return InkWell(
       onTap: onPressed,
       child: Container(
+        //alignment: Alignment.bottomRight,
         margin: const EdgeInsets.symmetric(horizontal: 8),
         padding: const EdgeInsets.all(15),
         width: 180,
@@ -45,13 +46,14 @@ class ProductCell extends StatelessWidget {
             ),
             Text(
               pObj["name"],
+              textDirection: TextDirection.rtl,
               style: TextStyle(
                   color: AppColor.primaryText,
                   fontSize: 18,
                   fontWeight: FontWeight.w700),
             ),
             const SizedBox(
-              height: 3,
+              height: 5,
             ),
             Text(
               "${pObj["unit"]} : ${pObj["qty"]}".toPersianDigit(),

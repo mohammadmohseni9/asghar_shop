@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../common/constance.dart';
 import '../../common_widget/explore_cell.dart';
 import 'explore_details.dart';
+import 'search_view.dart';
 
 class ExploreView extends StatefulWidget {
   const ExploreView({super.key});
@@ -78,33 +79,43 @@ class _ExploreViewState extends State<ExploreView> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                height: 45,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(97, 144, 144, 144),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                alignment: Alignment.center,
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsetsDirectional.all(12.0),
-                      child: Image.asset(
-                        "assets/images/search.png",
-                      ),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SearchView(),
                     ),
-                    const Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      child: Text(
-                        "جستجو دسته ها",
-                        style: TextStyle(
-                            color: AppColor.secondaryText,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600),
+                  );
+                },
+                child: Container(
+                  height: 45,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(97, 144, 144, 144),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  alignment: Alignment.center,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsetsDirectional.all(12.0),
+                        child: Image.asset(
+                          "assets/images/search.png",
+                        ),
                       ),
-                    ),
-                  ],
+                      const Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                        child: Text(
+                          "جستجو دسته ها",
+                          style: TextStyle(
+                              color: AppColor.secondaryText,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
