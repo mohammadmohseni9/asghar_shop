@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../common/constance.dart';
 import '../../common_widget/explore_cell.dart';
+import 'explore_details.dart';
 
 class ExploreView extends StatefulWidget {
   const ExploreView({super.key});
@@ -125,7 +126,14 @@ class _ExploreViewState extends State<ExploreView> {
                     var pObj = findProductCategory[index] as Map? ?? {};
                     return ExploreCell(
                       pObj: pObj,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ExploreDetailsView(
+                                      eObj: pObj,
+                                    )));
+                      },
                     );
                   }),
             )
