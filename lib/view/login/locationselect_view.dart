@@ -101,7 +101,7 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                     title: "انتخاب استان",
                     placeholder: "انتخاب شهر",
                     didChange: (sObj) {},
-                    valueList: const ['تهران', 'ساری', 'تبریز'],
+                    valueList: locations,
                   ),
                   SizedBox(
                     height: media.height * 0.03,
@@ -110,7 +110,7 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                     title: "انتخاب شهرستان",
                     placeholder: "انتخاب شهر",
                     didChange: (sObj) {},
-                    valueList: const ['تهران', 'ساری', 'تبریز'],
+                    valueList: locations,
                   ),
                   SizedBox(
                     height: media.height * 0.03,
@@ -118,8 +118,10 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                   RoundedButten(
                     title: "ارسال",
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const LoginView()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginView()));
                     },
                   ),
                 ],
